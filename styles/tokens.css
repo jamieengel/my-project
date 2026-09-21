@@ -44,10 +44,10 @@
   /* --- Tracking ---------------------------------------------------------
      Size-specific, never one value everywhere. Large display text reads too
      loose, so pull it in; small and uppercase text needs air.             */
-  --tracking-hero:    -0.032em;
-  --tracking-display: -0.022em;
-  --tracking-heading: -0.015em;
-  --tracking-snug:    -0.008em;
+  --tracking-hero:    -0.016em;
+  --tracking-display: -0.013em;
+  --tracking-heading: -0.009em;
+  --tracking-snug:    -0.004em;
   --tracking-body:     0em;
   --tracking-small:    0.005em;
   --tracking-eyebrow:  0.12em;

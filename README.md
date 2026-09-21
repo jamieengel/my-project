@@ -22,7 +22,7 @@ npx http-server . -p 8080
 
 - **Fluid scale.** Eleven sizes, `clamp()`ed between a 360px and ~1400px
   viewport, all in `rem` so the reader's browser text-size setting still works.
-- **Tracking follows size.** `-0.032em` on the hero, `0` on body copy,
+- **Tracking follows size.** `-0.016em` on the hero, `0` on body copy,
   `0.12em` on uppercase labels. No single letter-spacing value for everything.
 - **Leading runs inverse to size.** `1.0` on the hero, `1.65` on body,
   `1.75` in `.t-prose`.
