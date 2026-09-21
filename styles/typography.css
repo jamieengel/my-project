@@ -80,7 +80,7 @@ h6 {
   font-weight: var(--weight-semibold);
   text-transform: uppercase;
   letter-spacing: var(--tracking-eyebrow);
-  color: var(--ink-muted);
+  color: var(--accent);
 }
 
 /* --- Body copy ----------------------------------------------------------- */
@@ -109,11 +109,11 @@ a {
   text-decoration-line: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
-  text-decoration-color: color-mix(in oklab, currentColor 35%, transparent);
+  text-decoration-color: color-mix(in oklab, var(--accent) 55%, transparent);
   transition: text-decoration-color 150ms ease;
 }
 
-a:hover { text-decoration-color: currentColor; }
+a:hover { text-decoration-color: var(--accent); }
 
 a:focus-visible {
   outline: 2px solid var(--accent);
@@ -132,14 +132,14 @@ ul, ol {
 li { margin-bottom: 0.4em; }
 li:last-child { margin-bottom: 0; }
 
-li::marker { color: var(--ink-subtle); }
+li::marker { color: var(--accent); }
 
 /* --- Quotes -------------------------------------------------------------- */
 
 blockquote {
   margin: 2em 0;
   padding-left: 1.2em;
-  border-left: 2px solid var(--rule);
+  border-left: 2px solid var(--accent);
   max-width: var(--measure-narrow);
 }
 
@@ -215,7 +215,7 @@ hr {
   line-height: var(--leading-snug);
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
-  color: var(--ink-muted);
+  color: var(--accent);
 }
 
 /* Sub-headline / intro paragraph under a hero or section heading. */

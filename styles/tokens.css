@@ -67,12 +67,15 @@
 
   /* Motion tokens live in motion.css, next to the only rules that use them. */
 
-  /* --- Ink & surface ---------------------------------------------------- */
+  /* --- Ink & surface ----------------------------------------------------
+     The inks sit in the same warm hue family as the paper (red channel above
+     blue in every one). Cool greys on a warm surface read subtly dead.
+     --ink-subtle clears 4.5:1 on --surface; it carries .t-caption at 15px.  */
   --surface:      #fbfaf8;
   --surface-sunk: #f3f1ec;
-  --ink:          #16161a;
-  --ink-muted:    #55555f;
-  --ink-subtle:   #7c7c88;
+  --ink:          #1a1713;
+  --ink-muted:    #5b5349;
+  --ink-subtle:   #756c60;
   --rule:         #e3e0d9;
   --accent:       #8a3b12;
 }
@@ -80,22 +83,22 @@
 /* Dark mode by preference, overridable with data-theme on the root. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --surface:      #111013;
-    --surface-sunk: #1a191e;
+    --surface:      #131210;
+    --surface-sunk: #1c1a17;
     --ink:          #f2f0ec;
-    --ink-muted:    #a8a6a1;
-    --ink-subtle:   #7e7c79;
-    --rule:         #2c2a30;
-    --accent:       #e8956a;
+    --ink-muted:    #a8a29a;
+    --ink-subtle:   #837d74;
+    --rule:         #2e2b26;
+    --accent:       #e5885a;
   }
 }
 
 :root[data-theme="dark"] {
-  --surface:      #111013;
-  --surface-sunk: #1a191e;
+  --surface:      #131210;
+  --surface-sunk: #1c1a17;
   --ink:          #f2f0ec;
-  --ink-muted:    #a8a6a1;
-  --ink-subtle:   #7e7c79;
-  --rule:         #2c2a30;
-  --accent:       #e8956a;
+  --ink-muted:    #a8a29a;
+  --ink-subtle:   #837d74;
+  --rule:         #2e2b26;
+  --accent:       #e5885a;
 }

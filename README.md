@@ -28,8 +28,14 @@ npx http-server . -p 8080
 - **Leading runs inverse to size.** `1.0` on the hero, `1.65` on body,
   `1.75` in `.t-prose`.
 - **Measure is a token.** Paragraphs cap at `66ch`, leads at `46ch`.
+- **Colour is one family.** Every ink sits in the same warm hue as the paper
+  (red channel above blue), because cool greys on a warm surface read dead.
+  The accent carries the uppercase labels, list markers, quote rules and link
+  underlines — not just focus rings.
 - Light and dark, via `prefers-color-scheme` and overridable with
-  `data-theme="light" | "dark"` on `<html>`.
+  `data-theme="light" | "dark"` on `<html>`. Both themes are tuned to the same
+  contrast ratios, so the accent has equal weight in each. All text clears
+  WCAG AA.
 
 ### Using it
 
