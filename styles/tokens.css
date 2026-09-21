@@ -65,6 +65,8 @@
   --measure:        66ch;
   --measure-wide:   78ch;
 
+  /* Motion tokens live in motion.css, next to the only rules that use them. */
+
   /* --- Ink & surface ---------------------------------------------------- */
   --surface:      #fbfaf8;
   --surface-sunk: #f3f1ec;

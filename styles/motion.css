@@ -19,18 +19,20 @@
    The four children rise in sequence — eyebrow, headline, lead, buttons —
    in the order you read them.                                             */
 
+/* fill-mode `both` so the from-state covers the delay window too. Deliberately
+   no base `opacity: 0`: if the animation never runs, the hero shows rather
+   than staying invisible. */
 .hero > * {
-  opacity: 0;
-  animation: hero-rise 500ms var(--ease-out) forwards;
+  animation: hero-rise 500ms var(--ease-out) both;
 }
 
 .hero > *:nth-child(2) { animation-delay: 60ms; }
 .hero > *:nth-child(3) { animation-delay: 120ms; }
-.hero > *:nth-child(4) { animation-delay: 180ms; }
+.hero > *:nth-child(n+4) { animation-delay: 180ms; }
 
 @keyframes hero-rise {
   from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: none; }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* --- Buttons -------------------------------------------------------------
@@ -60,9 +62,13 @@
    place, and buttons keep their colour feedback; all movement is dropped.  */
 
 @media (prefers-reduced-motion: reduce) {
-  .hero > * {
+  /* :nth-child(n+2) matches the specificity of the stagger rules above so
+     animation-delay is actually overridden — a media query adds none. */
+  .hero > *,
+  .hero > *:nth-child(n+2) {
     animation-name: hero-fade;
     animation-duration: 300ms;
+    animation-delay: 0s;
   }
 
   .btn {
