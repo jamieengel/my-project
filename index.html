@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Groundwork — Typography</title>
+<meta name="description" content="An editorial type system for a landing page: Instrument Serif for display, Inter for everything else.">
+
+<!-- Font loading. preconnect first so the CSS request starts a round trip
+     earlier; display=swap shows fallback text immediately instead of a
+     blank hero. Self-host later if you want to drop the third party. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400..700&display=swap">
+
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/typography.css">
+<link rel="stylesheet" href="styles/page.css">
+</head>
+<body>
+
+<header class="wrap">
+  <nav class="nav">
+    <a class="brand" href="#">Groundwork</a>
+    <ul class="nav-links t-caption">
+      <li><a href="#system">System</a></li>
+      <li><a href="#specimen">Specimen</a></li>
+      <li><a href="#usage">Usage</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ===== Hero ========================================================= -->
+  <section class="wrap hero">
+    <span class="t-eyebrow">Type system v1</span>
+    <h1 class="t-hero">Typography that carries the whole page.</h1>
+    <p class="t-lead">
+      A serif for the things people read first, a sans for everything they read
+      after. Eleven sizes, six leadings, seven tracking values — all fluid, all
+      in rem, all defined in one file.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#specimen">See the scale</a>
+      <a class="btn btn-ghost" href="#usage">How to use it</a>
+    </div>
+  </section>
+
+  <!-- ===== Principles =================================================== -->
+  <section class="wrap section" id="system">
+    <div class="section-head">
+      <span class="t-eyebrow">The rules</span>
+      <h2>Three decisions, applied consistently.</h2>
+    </div>
+
+    <div class="grid">
+      <article>
+        <h3>Tracking follows size</h3>
+        <p class="t-muted">
+          Letters read further apart as they grow, so display sizes pull in to
+          <code>-0.032em</code> while body copy sits at zero and uppercase
+          labels open to <code>0.12em</code>. One letter-spacing value for the
+          whole page is wrong somewhere.
+        </p>
+      </article>
+      <article>
+        <h3>Leading runs inverse</h3>
+        <p class="t-muted">
+          The hero sets at <code>1.0</code>; a paragraph you actually read sets
+          at <code>1.65</code>. Tight leading looks deliberate on a headline and
+          punishing in a paragraph.
+        </p>
+      </article>
+      <article>
+        <h3>Measure is a control</h3>
+        <p class="t-muted">
+          Paragraphs cap at <code>66ch</code> by default, leads at
+          <code>46ch</code>. Line length is set by the type system, not by
+          whatever width the container happened to be.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== Specimen ===================================================== -->
+  <section class="wrap section" id="specimen">
+    <div class="section-head">
+      <span class="t-eyebrow">Specimen</span>
+      <h2>The scale, at this viewport.</h2>
+      <p class="t-lead">Resize the window — every size below interpolates between its min and max.</p>
+    </div>
+
+    <div class="specimen">
+
+      <div class="specimen-row">
+        <div class="specimen-meta t-caption t-numeric">
+          <span>.t-hero</span><span>52 → 96px</span><span>lh 1.0 / tr −.032em</span>
+        </div>
+        <p class="specimen-sample t-hero">Hero headline</p>
+      </div>
+
+      <div class="specimen-row">
+        <div class="specimen-meta t-caption t-numeric">
+          <span>h1</span><span>44 → 72px</span><span>lh 1.08 / tr −.022em</span>
+        </div>
+        <h1 class="specimen-sample">Page headline</h1>
+      </div>
+
+      <div class="specimen-row">
+        <div class="specimen-meta t-caption t-numeric">
+          <span>h2</span><span>36 → 52px</span><span>lh 1.08 / tr −.022em</span>
+        </div>
+        <h2 class="specimen-sample">Section headline</h2>
+      </div>
+
+      <div class="specimen-row">
+        <div class="specimen-meta t-caption t-numeric">
+          <span>h3</span><span>30 → 40px</span><span>lh 1.18 / tr −.015em</span>
+        </div>
+        <h3 class="specimen-sample">Subsection</h3>
+      </div>
+
+      <div class="specimen-row">
+        <div class="specimen-meta t-caption t-numeric">
+          <span>h4</span><span>24 → 30px</span><span>lh 1.18 / tr −.015em</span>
+        </div>
+        <h4 class="specimen-sample">Card title</h4>
+      </div>
+
+      <div class="specimen-row">
+        <div class="specimen-meta t-caption t-numeric">
+          <span>.t-lead</span><span>20 → 24px</span><span>lh 1.35 / tr −.008em</span>
+        </div>
+        <p class="specimen-sample t-lead t-measure-wide">
+          The sub-headline that has to survive being read twice.
+        </p>
+      </div>
+
+      <div class="specimen-row">
+        <div class="specimen-meta t-caption t-numeric">
+          <span>h5</span><span>19px</span><span>600 / lh 1.35</span>
+        </div>
+        <h5 class="specimen-sample">Inline heading in a sans</h5>
+      </div>
+
+      <div class="specimen-row">
+        <div class="specimen-meta t-caption t-numeric">
+          <span>body</span><span>17px</span><span>lh 1.65 / tr 0</span>
+        </div>
+        <p class="specimen-sample t-measure-wide">
+          Body copy sets in Inter at seventeen pixels with open leading. This is
+          the size the page is really made of — the headline gets read once, and
+          then everything else has to hold attention at this scale.
+        </p>
+      </div>
+
+      <div class="specimen-row">
+        <div class="specimen-meta t-caption t-numeric">
+          <span>.t-caption</span><span>15px</span><span>lh 1.35 / tr .005em</span>
+        </div>
+        <p class="specimen-sample t-caption">Captions, metadata, and footnotes.</p>
+      </div>
+
+      <div class="specimen-row">
+        <div class="specimen-meta t-caption t-numeric">
+          <span>.t-eyebrow</span><span>13px</span><span>600 / caps / tr .12em</span>
+        </div>
+        <p class="specimen-sample t-eyebrow">Label above a headline</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== Usage ======================================================== -->
+  <section class="wrap section" id="usage">
+    <div class="section-head">
+      <span class="t-eyebrow">Usage</span>
+      <h2>Reading, at length.</h2>
+    </div>
+
+    <div class="t-prose">
+      <p>
+        The two stylesheets are the system. <code>tokens.css</code> holds every
+        family, size, leading, tracking and measure as a custom property;
+        <code>typography.css</code> applies them to elements and exposes a short
+        list of <code>.t-*</code> utilities. Nothing else in the project should
+        contain a <code>font-size</code>.
+      </p>
+
+      <h3>Adding a section</h3>
+      <p>
+        Open with <code>.t-eyebrow</code>, then an <code>h2</code>, then a
+        <code>.t-lead</code> if the section needs a sentence of orientation.
+        Body copy needs no class — the element defaults already carry the right
+        size, leading and measure.
+      </p>
+
+      <ul>
+        <li><code>.t-hero</code> — one per page, above the fold.</li>
+        <li><code>.t-lead</code> — sub-headline; caps at a 46ch measure.</li>
+        <li><code>.t-prose</code> — long-form blocks; opens leading to 1.75.</li>
+        <li><code>.t-numeric</code> — tabular figures for prices and tables.</li>
+        <li><code>.t-measure-*</code> — override line length where 66ch is wrong.</li>
+      </ul>
+
+      <blockquote>
+        <p>Set the scale once, then spend your attention on the words.</p>
+        <cite>The only rule worth enforcing</cite>
+      </blockquote>
+
+      <h3>Changing the faces</h3>
+      <p>
+        Swap <code>--font-display</code> and <code>--font-body</code> in
+        <code>tokens.css</code> and update the Google Fonts link in the
+        <code>&lt;head&gt;</code>. If the new display face ships multiple
+        weights, add a <code>font-weight</code> to the heading rule — Instrument
+        Serif has one weight, which is why the headings don't set one and why
+        <code>font-synthesis-weight: none</code> stops the browser faking a bold.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap footer t-caption">
+  <span>Instrument Serif &amp; Inter</span>
+  <span>Set in a 66ch measure</span>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+/* ==========================================================================
+   Page chrome for the demo landing page.
+   Layout and spacing only — no type values live here. Delete this file when
+   you drop the type system into a real project.
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+.wrap {
+  width: 100%;
+  max-width: 68rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* --- Nav ----------------------------------------------------------------- */
+
+.nav {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-block: 1.75rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: none;
+}
+
+.nav-links li { margin: 0; }
+
+.nav-links a { text-decoration: none; }
+.nav-links a:hover { text-decoration: underline; }
+
+/* --- Sections ------------------------------------------------------------ */
+
+.hero { padding-block: clamp(4rem, 9vw, 8.5rem) clamp(3rem, 6vw, 6rem); }
+
+.hero .t-eyebrow { display: block; margin-bottom: 1.25rem; }
+.hero .t-lead { margin-block: 1.5rem 2.5rem; }
+
+.section { padding-block: clamp(3rem, 6vw, 5.5rem); }
+.section + .section { border-top: 1px solid var(--rule); }
+.section-head { margin-bottom: 2.5rem; }
+.section-head .t-eyebrow { display: block; margin-bottom: 0.9rem; }
+
+/* --- Buttons ------------------------------------------------------------- */
+
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: var(--weight-medium);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-small);
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.btn-primary { background: var(--ink); color: var(--surface); }
+.btn-primary:hover { background: color-mix(in oklab, var(--ink) 82%, var(--surface)); }
+.btn-ghost:hover { background: var(--surface-sunk); }
+
+/* --- Feature grid -------------------------------------------------------- */
+
+.grid {
+  display: grid;
+  gap: 2.5rem 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
+.grid h3 { margin-bottom: 0.4em; }
+.grid p { max-width: none; }
+
+/* --- Specimen table ------------------------------------------------------ */
+
+.specimen { display: grid; gap: 2.25rem; }
+
+.specimen-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.specimen-row:last-child { border-bottom: 0; padding-bottom: 0; }
+
+.specimen-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+}
+
+.specimen-sample { max-width: none; margin: 0; }
+
+@media (min-width: 52rem) {
+  .specimen-row {
+    grid-template-columns: 11rem minmax(0, 1fr);
+    gap: 1rem 2.5rem;
+    align-items: baseline;
+  }
+  .specimen-meta { flex-direction: column; gap: 0.3rem; }
+}
+
+/* --- Footer -------------------------------------------------------------- */
+
+.footer {
+  padding-block: 2.5rem 4rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  justify-content: space-between;
+}

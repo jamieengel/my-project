@@ -1,0 +1,99 @@
+/* ==========================================================================
+   Typography tokens
+   The single source of truth for families, sizes, leading, tracking, weight,
+   measure and ink. Change the system here; never hard-code a type value
+   anywhere else.
+   ========================================================================== */
+
+:root {
+  /* --- Families ---------------------------------------------------------
+     Display: Instrument Serif ships a single weight (400) by design. Build
+     emphasis with size and leading, not weight. Do not let the browser
+     synthesise a bold from it.
+     Body: Inter variable, 400-700.                                        */
+  --font-display: "Instrument Serif", ui-serif, Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  /* --- Size scale -------------------------------------------------------
+     Fluid from 360px to ~1400px viewports. All rem, so the layout scales
+     with the reader's browser text-size setting instead of fighting it.
+     px values in comments are min -> max.                                 */
+  --text-2xs:  0.75rem;                                         /* 12       */
+  --text-xs:   0.8125rem;                                       /* 13       */
+  --text-sm:   0.9375rem;                                       /* 15       */
+  --text-base: 1.0625rem;                                       /* 17       */
+  --text-md:   1.1875rem;                                       /* 19       */
+  --text-lg:   clamp(1.25rem,  1.16rem + 0.45vw, 1.5rem);       /* 20 -> 24 */
+  --text-xl:   clamp(1.5rem,   1.36rem + 0.70vw, 1.875rem);     /* 24 -> 30 */
+  --text-2xl:  clamp(1.875rem, 1.62rem + 1.25vw, 2.5rem);       /* 30 -> 40 */
+  --text-3xl:  clamp(2.25rem,  1.83rem + 2.05vw, 3.25rem);      /* 36 -> 52 */
+  --text-4xl:  clamp(2.75rem,  2.02rem + 3.65vw, 4.5rem);       /* 44 -> 72 */
+  --text-5xl:  clamp(3.25rem,  2.08rem + 5.85vw, 6rem);         /* 52 -> 96 */
+
+  /* --- Leading ----------------------------------------------------------
+     Inverse to size: tight as type grows, open for sustained reading.     */
+  --leading-hero:    1.0;
+  --leading-display: 1.08;
+  --leading-heading: 1.18;
+  --leading-snug:    1.35;
+  --leading-body:    1.65;
+  --leading-loose:   1.75;
+
+  /* --- Tracking ---------------------------------------------------------
+     Size-specific, never one value everywhere. Large display text reads too
+     loose, so pull it in; small and uppercase text needs air.             */
+  --tracking-hero:    -0.032em;
+  --tracking-display: -0.022em;
+  --tracking-heading: -0.015em;
+  --tracking-snug:    -0.008em;
+  --tracking-body:     0em;
+  --tracking-small:    0.005em;
+  --tracking-eyebrow:  0.12em;
+
+  /* --- Weight (body face only) ------------------------------------------ */
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold: 600;
+  --weight-bold:    700;
+
+  /* --- Measure ----------------------------------------------------------
+     Line length is a typographic control, not a layout accident.
+     Body prose lives at 60-75 characters.                                 */
+  --measure-narrow: 46ch;
+  --measure:        66ch;
+  --measure-wide:   78ch;
+
+  /* --- Ink & surface ---------------------------------------------------- */
+  --surface:      #fbfaf8;
+  --surface-sunk: #f3f1ec;
+  --ink:          #16161a;
+  --ink-muted:    #55555f;
+  --ink-subtle:   #7c7c88;
+  --rule:         #e3e0d9;
+  --accent:       #8a3b12;
+}
+
+/* Dark mode by preference, overridable with data-theme on the root. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --surface:      #111013;
+    --surface-sunk: #1a191e;
+    --ink:          #f2f0ec;
+    --ink-muted:    #a8a6a1;
+    --ink-subtle:   #7e7c79;
+    --rule:         #2c2a30;
+    --accent:       #e8956a;
+  }
+}
+
+:root[data-theme="dark"] {
+  --surface:      #111013;
+  --surface-sunk: #1a191e;
+  --ink:          #f2f0ec;
+  --ink-muted:    #a8a6a1;
+  --ink-subtle:   #7e7c79;
+  --rule:         #2c2a30;
+  --accent:       #e8956a;
+}
