@@ -69,7 +69,6 @@
   font-weight: var(--weight-medium);
   font-size: var(--text-sm);
   letter-spacing: var(--tracking-small);
-  transition: background-color 150ms ease, color 150ms ease;
 }
 
 .btn-primary { background: var(--ink); color: var(--surface); }

@@ -10,6 +10,7 @@ index.html              demo landing page + live specimen of the scale
 styles/tokens.css       families, size scale, leading, tracking, measure, ink
 styles/typography.css   element defaults (h1–h6, p, lists, quotes, code) + .t-* utilities
 styles/page.css         layout chrome for the demo page only — delete when porting
+styles/motion.css       hero entrance + button feedback; the only file that animates
 ```
 
 Open `index.html` directly, or serve it:
@@ -46,6 +47,21 @@ contain a `font-size`. A section opens with `.t-eyebrow`, then an `h2`, then a
 | `.t-pull` | pull quote inside a long section |
 | `.t-numeric` | tabular figures for prices and tables |
 | `.t-measure-*` | override line length where `66ch` is wrong |
+
+### Motion
+
+`styles/motion.css` is the only file that animates anything, so the type system
+stays free of motion concerns.
+
+- **Hero entrance.** The four hero children fade and rise 10px in sequence
+  (0 / 60 / 120 / 180ms), 500ms on `cubic-bezier(0.23, 1, 0.32, 1)`. A CSS
+  animation rather than JS so it runs off the main thread — the page is
+  fetching two webfonts at exactly that moment.
+- **Buttons.** 1px lift on hover, gated behind
+  `@media (hover: hover) and (pointer: fine)` so a tap doesn't leave a stuck
+  hover state; `scale(0.97)` on press, which takes the label with it.
+- **Reduced motion.** Gentler, not gone: the hero still fades so the page
+  doesn't snap into place, buttons keep colour feedback, all movement drops.
 
 ### Swapping the faces
 

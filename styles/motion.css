@@ -1,0 +1,79 @@
+/* ==========================================================================
+   Motion
+   The only file in the project that animates anything. Keeps the type system
+   free of motion concerns the same way tokens.css keeps everything else free
+   of font sizes.
+   ========================================================================== */
+
+:root {
+  /* Built-in ease-out is too weak to read as deliberate. */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* --- Hero entrance -------------------------------------------------------
+   A landing hero is seen once per visit, so it can carry an entrance the
+   rest of the page has no business having. CSS animation rather than JS:
+   it runs off the main thread, which matters here because the page is busy
+   fetching two webfonts at exactly this moment.
+
+   The four children rise in sequence — eyebrow, headline, lead, buttons —
+   in the order you read them.                                             */
+
+.hero > * {
+  opacity: 0;
+  animation: hero-rise 500ms var(--ease-out) forwards;
+}
+
+.hero > *:nth-child(2) { animation-delay: 60ms; }
+.hero > *:nth-child(3) { animation-delay: 120ms; }
+.hero > *:nth-child(4) { animation-delay: 180ms; }
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* --- Buttons -------------------------------------------------------------
+   Hover is seen constantly, so it stays near-imperceptible: a 1px lift and
+   the background shift, nothing more. The press pushes back down and in,
+   which is what makes it read as a physical button rather than a rectangle
+   that changed colour.                                                     */
+
+.btn {
+  transition:
+    background-color 150ms ease,
+    color 150ms ease,
+    transform 160ms var(--ease-out);
+}
+
+/* Touch devices fire a false hover on tap and leave it stuck there. */
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover { transform: translateY(-1px); }
+}
+
+/* :active is a real press everywhere, so it needs no gating. scale() takes
+   the label with it — that's what sells the press. */
+.btn:active { transform: translateY(0) scale(0.97); }
+
+/* --- Reduced motion ------------------------------------------------------
+   Gentler, not gone. The hero still fades in so the page doesn't snap into
+   place, and buttons keep their colour feedback; all movement is dropped.  */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero > * {
+    animation-name: hero-fade;
+    animation-duration: 300ms;
+  }
+
+  .btn {
+    transition: background-color 150ms ease, color 150ms ease;
+  }
+
+  .btn:hover,
+  .btn:active { transform: none; }
+}
+
+@keyframes hero-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
